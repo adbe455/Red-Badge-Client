@@ -7,20 +7,19 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/htt
 @Injectable()
 export class GameSearch {
 
-  private _url: string = `https://api-v3.igdb.com/games`;
+  private _url: string = `https://api.igdb.com/v4/games/`;
   
   private _proxy: string = 'https://cors-anywhere.herokuapp.com/';
 
 
   constructor(private http: HttpClient) {}
-
   
   fetch(query: string, offset: number) {
     const parseHeaders = {
       headers: new HttpHeaders({
-            // 'user-key':'cc5441053548ed186c2e6a3add7af2f1', // Aaron's Key
-            'user-key':'5a82182a64789d3546faae4b10160803', // Philips' Key
-            'Accept':'application/json'
+            'Client-ID': 'dwdaqgesynudsgg0n63ypgb0or2bjl',
+            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('igdb')).token.access_token,
+            'Accept':'*/*'
           })
      };
   

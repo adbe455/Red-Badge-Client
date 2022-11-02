@@ -1,6 +1,6 @@
 // @angular imports
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core'; // <-- NgModel lives here
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core'; // <-- NgModel lives here
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,7 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 
-// Stipe Imports
+// Stripe Imports
 import { Module as StripeModule } from "stripe-angular";
 
 
@@ -38,6 +38,7 @@ import { GameReview } from './services/game-review.service';
 import { AuthService } from './core/auth/auth.service';
 import { GameForumService } from './modules/game-forum/game-forum/game-forum.service';
 import { AuthGuard } from './core/guards/auth-guard.service';
+import { IgdbAuth } from './services/igdb-auth.service';
 
 
 // pipe imports
@@ -52,6 +53,11 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 @NgModule({
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
+  
   declarations: [
     AppComponent,
     AuthComponent,
@@ -82,7 +88,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     HttpClientModule,
     AppRoutingModule,
     MDBBootstrapModule.forRoot(),
-    [ StripeModule.forRoot() ]
+    StripeModule.forRoot()
   ],
   exports: [
     GameReviewComponent,
@@ -95,6 +101,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     AuthService,
     GameForumService,
     AuthGuard,
+    IgdbAuth
   ],
   bootstrap: [AppComponent]
 })
