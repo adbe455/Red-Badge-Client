@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/htt
 export class AdminService {
 
   // HEROKU
-  private _url: string = `https://criticalhitsserver.herokuapp.com`
+  private _url: string = `https://crithits2server.herokuapp.com`
 
   // LOCALHOST
   // private _url: string = `http://localhost:3343`

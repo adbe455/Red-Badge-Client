@@ -8,7 +8,7 @@ import { User } from '../user';
 export class UserService {
 
     // HEROKU URL
-    public url: string = `https://criticalhitsserver.herokuapp.com`;
+    public url: string = `https://crithits2server.herokuapp.com`;
 
     // LOCALHOST
     // public url: string = `http://localhost:3343`;

@@ -15,8 +15,8 @@ export class GameForumService {
     private _proxy: string = 'https://cors-anywhere.herokuapp.com/';
 
     // HEROKU URL
-    private _url2: string = 'https://criticalhitsserver.herokuapp.com/forumTopic/';
-    private _url3: string = 'https://criticalhitsserver.herokuapp.com/forumReply/';
+    private _url2: string = 'https://crithits2server.herokuapp.com/forumTopic/';
+    private _url3: string = 'https://crithits2server.herokuapp.com/forumReply/';
     
     // LOCALHOST
     // private _url2: string = 'http://localhost:3343/forumTopic/';

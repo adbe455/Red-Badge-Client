@@ -11,10 +11,10 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/htt
 export class GameReview {
 
   private _url: string = `https://api.igdb.com/v4/games/`;
-  private _proxy: string = 'https://cors-anywhere.herokuapp.com/';
+  private _proxy: string = 'https://corsanywhereapp.herokuapp.com/';
   
   // HEROKU URL
-  private _url2: string = `https://criticalhitsserver.herokuapp.com/review/`
+  private _url2: string = `https://crithits2server.herokuapp.com/review/`
 
   // LOCALHOST URL
   // private _url2: string = `http://localhost:3343/review/`
@@ -28,7 +28,6 @@ export class GameReview {
       headers: new HttpHeaders({
             'Client-ID': 'dwdaqgesynudsgg0n63ypgb0or2bjl',
             'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('igdb')).token.access_token,
-            'Accept':'*/*'
           })
       };
   

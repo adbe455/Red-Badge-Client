@@ -9,7 +9,7 @@ export class GameSearch {
 
   private _url: string = `https://api.igdb.com/v4/games/`;
   
-  private _proxy: string = 'https://cors-anywhere.herokuapp.com/';
+  private _proxy: string = 'https://corsanywhereapp.herokuapp.com/';
 
 
   constructor(private http: HttpClient) {}
@@ -19,7 +19,6 @@ export class GameSearch {
       headers: new HttpHeaders({
             'Client-ID': 'dwdaqgesynudsgg0n63ypgb0or2bjl',
             'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('igdb')).token.access_token,
-            'Accept':'*/*'
           })
      };
   
