@@ -10,7 +10,7 @@ import { HttpClient, HttpHeaderResponse, HttpHeaders } from '@angular/common/htt
 @Injectable()
 export class GameReview {
 
-  private _url: string = `https://api-v3.igdb.com/games`
+  private _url: string = `https://api.igdb.com/v4/games/`;
   private _proxy: string = 'https://cors-anywhere.herokuapp.com/';
   
   // HEROKU URL
@@ -26,16 +26,16 @@ export class GameReview {
   reviewFetch(query: string) {
     const parseHeaders = {
       headers: new HttpHeaders({
-            'user-key':'5a82182a64789d3546faae4b10160803',    // Phil's API key
-            // 'user-key':'cc5441053548ed186c2e6a3add7af2f1', // Aaron's API key
-            'Accept':'application/json'
+            'Client-ID': 'dwdaqgesynudsgg0n63ypgb0or2bjl',
+            'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('igdb')).token.access_token,
+            'Accept':'*/*'
           })
-     };
+      };
   
     let data = `
-    where id=${query};
-    fields artworks.*, storyline, summary, name, release_dates.human, genres.name, platforms.*, videos.*, dlcs.*, age_ratings.*, total_rating, total_rating_count, websites.*, game_modes.*, multiplayer_modes.*, screenshots.*;
-`
+      where id=${query};
+      fields artworks.*, storyline, summary, name, release_dates.human, genres.name, platforms.*, videos.*, dlcs.*, age_ratings.*, total_rating, total_rating_count, websites.*, game_modes.*, multiplayer_modes.*, screenshots.*;
+    `
 
 
     // if(type == 'people'){return this.http.get<Game[]>(this._url + 'people/?search=' + query)}

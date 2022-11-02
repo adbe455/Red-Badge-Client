@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GameSearch } from 'src/app/services/game-search.service';
+import { IgdbAuth } from 'src/app/services/igdb-auth.service';
 
 
 
@@ -12,7 +13,7 @@ import { GameSearch } from 'src/app/services/game-search.service';
 })
 export class SplashComponent implements OnInit {
 
-  
+
 
   public results: any = [];
   public searching: any = false;
@@ -20,12 +21,20 @@ export class SplashComponent implements OnInit {
   public query: any;
 
   constructor(
+    private _igdbAuth: IgdbAuth,
     private _gameSearch: GameSearch,
     private route: ActivatedRoute,
     private router: Router,
     ) {}
 
   ngOnInit() {
+    if(localStorage.getItem('igdb') == null)
+    {
+      this._igdbAuth.fetch()
+      .subscribe(data => {
+        localStorage.setItem('igdb', JSON.stringify({ token: data }));
+      })
+    }
   }
 
   toggleSearching(){
